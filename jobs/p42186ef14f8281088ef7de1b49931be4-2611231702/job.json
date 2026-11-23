@@ -1,0 +1,303 @@
+{
+ "id": "p42186ef14f8281088ef7de1b49931be4-2611231702",
+ "parts": [
+  {
+   "n": 1,
+   "audio": "part1.wav",
+   "tag": "PANAMAKANALEN • DEL 1/1",
+   "chain": {
+    "labels": [
+     "15 000 KM",
+     "6 500 KM",
+     "1914",
+     "30 000 DÖDA"
+    ],
+    "unlockAt": [
+     "$2",
+     "$3",
+     "@4:Nittonhundrafjorton",
+     null
+    ]
+   },
+   "scenes": [
+    {
+     "key": "hook",
+     "script": "Hur mycket kortare blir resan för ett fartyg som tar kanalen i stället för att åka runt Kap Horn? Mycket.",
+     "source": null,
+     "chrome": false,
+     "body": {
+      "type": "stack",
+      "gap": 40,
+      "widgets": [
+       {
+        "t": "bigtext",
+        "text": "HUR MYCKET?",
+        "sub": "KANALEN ELLER KAP HORN",
+        "at": "@Hur-0.2",
+        "size": 190
+       },
+       {
+        "t": "versus",
+        "left": {
+         "title": "KAP HORN",
+         "tone": "blue",
+         "at": "@åka",
+         "rows": [
+          {
+           "text": "Runt Sydamerika",
+           "at": "@runt"
+          }
+         ]
+        },
+        "right": {
+         "title": "KANALEN",
+         "tone": "green",
+         "at": "@tar",
+         "rows": [
+          {
+           "text": "Genom Panama",
+           "at": "@kanalen"
+          }
+         ]
+        },
+        "stamp": {
+         "text": "MYCKET KORTARE",
+         "at": "@mycket#2"
+        }
+       }
+      ]
+     }
+    },
+    {
+     "key": "karta",
+     "script": "Källorna nämner stora besparingar i både tid och bränsle. Se kartan: enligt Britannica handlar det om cirka femton tusen kilometer, ungefär åttatusen nautiska mil, mellan USA:s öst- och västkust.",
+     "source": "KÄLLA: BRITANNICA",
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 30,
+      "widgets": [
+       {
+        "t": "bigtext",
+        "text": "STORA BESPARINGAR",
+        "sub": "I TID OCH BRÄNSLE",
+        "at": "@besparingar-0.3",
+        "size": 130
+       },
+       {
+        "t": "map",
+        "view": {
+         "lon0": -128,
+         "lon1": -60,
+         "lat0": -2,
+         "lat1": 46
+        },
+        "height": 560,
+        "squash": 0.8,
+        "dots": 60,
+        "at": "@kartan-0.3",
+        "title": "ÖSTKUST ↔ VÄSTKUST",
+        "markers": [
+         {
+          "label": "NEW YORK",
+          "lon": -74,
+          "lat": 40.7,
+          "at": "@kartan+0.2",
+          "tone": "blue",
+          "side": "l"
+         },
+         {
+          "label": "SAN FRANCISCO",
+          "lon": -122.4,
+          "lat": 37.8,
+          "at": "@kartan+0.4",
+          "tone": "blue",
+          "side": "r"
+         },
+         {
+          "label": "PANAMAKANALEN",
+          "lon": -79.9,
+          "lat": 9.1,
+          "at": "@kartan+0.6",
+          "tone": "green",
+          "side": "l"
+         }
+        ],
+        "routes": [
+         {
+          "from": 0,
+          "to": 2,
+          "at": "@femton",
+          "dur": 40,
+          "tone": "green",
+          "label": "CIRKA 15 000 KM",
+          "curve": 0.1
+         },
+         {
+          "from": 2,
+          "to": 1,
+          "at": "@femton+0.8",
+          "dur": 40,
+          "tone": "green",
+          "curve": 0.1
+         }
+        ],
+        "stamp": {
+         "text": "ENLIGT BRITANNICA",
+         "at": "@Britannica",
+         "tone": "blue"
+        }
+       }
+      ]
+     }
+    },
+    {
+     "key": "kontinent",
+     "script": "På andra rutter är besparingen upp till sex tusen femhundra kilometer. Kanalen är bara runt åttio kilometer lång, men den skär genom en kontinent.",
+     "source": null,
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 40,
+      "widgets": [
+       {
+        "t": "bars",
+        "title": "KILOMETER",
+        "rows": [
+         {
+          "label": "BESPARING, UPP TILL",
+          "n": 6500,
+          "at": "@sex",
+          "dur": 50,
+          "tone": "blue"
+         },
+         {
+          "label": "KANALENS LÄNGD",
+          "n": 80,
+          "at": "@åttio",
+          "dur": 30,
+          "tone": "green"
+         }
+        ]
+       },
+       {
+        "t": "bigtext",
+        "text": "≈ 80 KM",
+        "sub": "SKÄR GENOM EN KONTINENT",
+        "at": "@skär-0.2",
+        "size": 190
+       }
+      ]
+     }
+    },
+    {
+     "key": "tidslinje",
+     "script": "Tidslinjen: enligt Wikipedia tar USA över bygget nittonhundrafyra. Nittonhundrafjorton öppnas kanalen. Tjugohundrasexton invigs större slussar för större fartyg.",
+     "source": "KÄLLA: WIKIPEDIA",
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 40,
+      "widgets": [
+       {
+        "t": "bigtext",
+        "text": "TIDSLINJEN",
+        "sub": "ENLIGT WIKIPEDIA",
+        "at": "@Tidslinjen-0.3",
+        "size": 170
+       },
+       {
+        "t": "timeline",
+        "nodes": [
+         {
+          "label": "1904",
+          "sub": "USA TAR ÖVER BYGGET",
+          "at": "@nittonhundrafyra",
+          "tone": "blue"
+         },
+         {
+          "label": "1914",
+          "sub": "KANALEN ÖPPNAS",
+          "at": "@Nittonhundrafjorton",
+          "tone": "green"
+         },
+         {
+          "label": "2016",
+          "sub": "STÖRRE SLUSSAR INVIGS",
+          "at": "@Tjugohundrasexton",
+          "tone": "green"
+         }
+        ],
+        "chips": [
+         {
+          "text": "STÖRRE FARTYG",
+          "at": "@fartyg",
+          "tone": "green"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "key": "priset",
+     "script": "Totalt dog nästan trettio tusen människor, enligt Populär Historia.",
+     "source": "KÄLLA: POPULÄR HISTORIA",
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 40,
+      "widgets": [
+       {
+        "t": "bigtext",
+        "text": "≈ 30 000",
+        "sub": "MÄNNISKOR DOG TOTALT",
+        "at": "@Totalt-0.2",
+        "size": 200
+       },
+       {
+        "t": "dots",
+        "title": "1 PRICK ≈ 1 000 MÄNNISKOR",
+        "at": "@nästan",
+        "total": 30,
+        "cols": 10,
+        "size": 70,
+        "gap": 14,
+        "groups": [
+         {
+          "label": "NÄSTAN 30 000 DÖDA",
+          "n": 30,
+          "tone": "ink",
+          "at": "@trettio",
+          "dur": 60
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "key": "fraga",
+     "script": "Vad betyder en enda genväg för världshandeln – och är den värd priset?",
+     "source": null,
+     "chrome": true,
+     "body": {
+      "type": "binary",
+      "question": "VÄRD PRISET?",
+      "questionAt": "@Vad",
+      "options": [
+       "JA",
+       "NEJ"
+      ],
+      "optionsAt": "@värd-0.3",
+      "switchAt": "@priset!",
+      "save": {
+       "text": "SPARA VIDEON",
+       "at": "@priset!"
+      }
+     }
+    }
+   ]
+  }
+ ]
+}
