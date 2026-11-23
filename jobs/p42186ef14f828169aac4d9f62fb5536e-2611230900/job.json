@@ -1,0 +1,353 @@
+{
+ "id": "p42186ef14f828169aac4d9f62fb5536e-2611230900",
+ "parts": [
+  {
+   "n": 1,
+   "audio": "part1.wav",
+   "tag": "SVERIGE • DAGEN H",
+   "chain": {
+    "labels": [
+     "DAGEN H",
+     "NEJ 1955",
+     "BESLUT 1963",
+     "KL 05"
+    ],
+    "unlockAt": [
+     "$2",
+     "@2:nej",
+     "@3:riksdagen",
+     null
+    ]
+   },
+   "scenes": [
+    {
+     "key": "hook",
+     "script": "Klockan fem på morgonen, söndagen den tredje september nittonhundrasextiosju, bytte hela Sverige körsida. Samtidigt. Det kallas Dagen H, för högertrafik.",
+     "source": null,
+     "chrome": false,
+     "body": {
+      "type": "stack",
+      "gap": 30,
+      "widgets": [
+       {
+        "t": "bigtext",
+        "text": "3 SEPT 1967",
+        "sub": "KL 05 • HELA SVERIGE BYTER KÖRSIDA",
+        "at": "@Klockan",
+        "size": 200
+       },
+       {
+        "t": "versus",
+        "left": {
+         "title": "VÄNSTER",
+         "tone": "blue",
+         "at": "@bytte",
+         "rows": [
+          {
+           "text": "före 1967",
+           "at": "@bytte"
+          }
+         ]
+        },
+        "right": {
+         "title": "HÖGER",
+         "tone": "green",
+         "at": "@körsida",
+         "rows": [
+          {
+           "text": "från 1967",
+           "at": "@körsida!"
+          }
+         ]
+        },
+        "stamp": {
+         "text": "DAGEN H",
+         "at": "@högertrafik."
+        }
+       }
+      ]
+     }
+    },
+    {
+     "key": "folkomrostning",
+     "script": "Hur kunde det bli så? Redan nittonhundrafemtiofem hölls en folkomröstning, och mer än åtta av tio röstade nej till högertrafik.",
+     "source": "KÄLLA: NATIONALENCYKLOPEDIN",
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 34,
+      "widgets": [
+       {
+        "t": "bigtext",
+        "text": "1955",
+        "sub": "FOLKOMRÖSTNING OM HÖGERTRAFIK",
+        "at": "@nittonhundrafemtiofem-0.3",
+        "size": 220
+       },
+       {
+        "t": "ring",
+        "value": 80,
+        "suffix": "%",
+        "label": "RÖSTADE NEJ",
+        "sub": "MER ÄN ÅTTA AV TIO",
+        "at": "@åtta-0.3",
+        "dur": 45,
+        "tone": "blue"
+       }
+      ]
+     }
+    },
+    {
+     "key": "beslut",
+     "script": "Ändå beslutade riksdagen om bytet åtta år senare, nittonhundrasextiotre. Ett argument som lyftes var att grannländer hade högertrafik.",
+     "source": "KÄLLA: NATIONALENCYKLOPEDIN",
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 30,
+      "widgets": [
+       {
+        "t": "timeline",
+        "nodes": [
+         {
+          "label": "1955",
+          "sub": "NEJ I FOLKOMRÖSTNING",
+          "at": "@^",
+          "tone": "blue"
+         },
+         {
+          "label": "1963",
+          "sub": "RIKSDAGEN BESLUTAR",
+          "at": "@riksdagen",
+          "tone": "green"
+         }
+        ],
+        "chips": [
+         {
+          "text": "8 ÅR SENARE",
+          "at": "@åtta",
+          "tone": "ink"
+         }
+        ]
+       },
+       {
+        "t": "map",
+        "view": {
+         "lon0": 3,
+         "lon1": 32,
+         "lat0": 54,
+         "lat1": 67
+        },
+        "height": 520,
+        "squash": 0.55,
+        "dots": 40,
+        "at": "@argument-0.3",
+        "title": "GRANNLÄNDER MED HÖGERTRAFIK",
+        "markers": [
+         {
+          "label": "STOCKHOLM",
+          "lon": 18.07,
+          "lat": 59.33,
+          "at": "@argument",
+          "tone": "blue",
+          "side": "b"
+         },
+         {
+          "label": "OSLO",
+          "lon": 10.75,
+          "lat": 59.91,
+          "at": "@grannländer",
+          "tone": "green",
+          "side": "l"
+         },
+         {
+          "label": "HELSINGFORS",
+          "lon": 24.94,
+          "lat": 60.17,
+          "at": "@grannländer+0.2",
+          "tone": "green",
+          "side": "r"
+         },
+         {
+          "label": "KÖPENHAMN",
+          "lon": 12.57,
+          "lat": 55.68,
+          "at": "@grannländer+0.4",
+          "tone": "green",
+          "side": "l"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "key": "planering",
+     "script": "Själva bytet var noga planerat. Förberedelserna tog flera år. Enligt vissa uppgifter var trafiken starkt begränsad under natten.",
+     "source": "KÄLLA: NATIONALENCYKLOPEDIN",
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 34,
+      "widgets": [
+       {
+        "t": "bigtext",
+        "text": "NOGA PLANERAT",
+        "sub": "BYTET VAR INGEN IMPROVISATION",
+        "at": "@Själva",
+        "size": 150
+       },
+       {
+        "t": "checklist",
+        "rows": [
+         {
+          "text": "FÖRBEREDELSER: FLERA ÅR",
+          "state": "yes",
+          "at": "@flera"
+         },
+         {
+          "text": "TRAFIK BEGRÄNSAD PÅ NATTEN",
+          "sub": "ENLIGT VISSA UPPGIFTER",
+          "state": "unknown",
+          "at": "@Enligt",
+          "stamp": {
+           "text": "OBEKRÄFTAT",
+           "at": "@natten."
+          }
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "key": "natten",
+     "script": "Tio minuter i fem skulle alla fordon som rörde sig stanna, byta sida och vänta. Klockan fem fick de rulla vidare på höger sida.",
+     "source": "KÄLLA: NATIONALENCYKLOPEDIN",
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 30,
+      "widgets": [
+       {
+        "t": "counter",
+        "label": "MINUTER",
+        "to": 10,
+        "at": "@Tio",
+        "dur": 40,
+        "tone": "blue",
+        "grid": {
+         "n": 10,
+         "label": "TIO MINUTER",
+         "at": "@Tio+0.2",
+         "dur": 50
+        }
+       },
+       {
+        "t": "timeline",
+        "nodes": [
+         {
+          "label": "04:50",
+          "sub": "ALLA FORDON STANNAR",
+          "at": "@Tio",
+          "tone": "blue"
+         },
+         {
+          "label": "05:00",
+          "sub": "RULLA VIDARE",
+          "at": "@Klockan",
+          "tone": "green"
+         }
+        ],
+        "chips": [
+         {
+          "text": "STANNA",
+          "at": "@stanna,",
+          "tone": "ink"
+         },
+         {
+          "text": "BYTA SIDA",
+          "at": "@byta",
+          "tone": "ink"
+         },
+         {
+          "text": "VÄNTA",
+          "at": "@vänta.",
+          "tone": "ink"
+         }
+        ],
+        "stamp": {
+         "text": "HÖGER SIDA",
+         "at": "@höger"
+        }
+       }
+      ]
+     }
+    },
+    {
+     "key": "omfattning",
+     "script": "Skyltar fick bytas ut och korsningar byggas om över hela landet. Förberedelserna var omfattande och syftade till att övergången skulle ske under ordnade former trots den oro som fanns inför bytet.",
+     "source": "KÄLLA: NATIONALENCYKLOPEDIN",
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 34,
+      "widgets": [
+       {
+        "t": "columns3",
+        "cols": [
+         {
+          "title": "SKYLTAR",
+          "text": "BYTTES UT",
+          "tone": "blue",
+          "at": "@Skyltar"
+         },
+         {
+          "title": "KORSNINGAR",
+          "text": "BYGGDES OM",
+          "tone": "blue",
+          "at": "@korsningar"
+         },
+         {
+          "title": "LANDET",
+          "text": "HELA",
+          "tone": "green",
+          "at": "@landet."
+         }
+        ]
+       },
+       {
+        "t": "bigtext",
+        "text": "ORDNADE FORMER",
+        "sub": "TROTS ORO INFÖR BYTET",
+        "at": "@ordnade-0.4",
+        "size": 170
+       }
+      ]
+     }
+    },
+    {
+     "key": "fraga",
+     "script": "Skulle du själv ha vågat köra klockan fem den morgonen?",
+     "source": null,
+     "chrome": true,
+     "body": {
+      "type": "binary",
+      "question": "VÅGAT KÖRA KL 05 DEN MORGONEN?",
+      "questionAt": "@Skulle",
+      "options": [
+       "JA",
+       "NEJ"
+      ],
+      "optionsAt": "@vågat",
+      "switchAt": "@morgonen",
+      "save": {
+       "text": "SPARA",
+       "at": "@morgonen!"
+      }
+     }
+    }
+   ]
+  }
+ ]
+}
