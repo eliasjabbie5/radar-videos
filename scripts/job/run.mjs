@@ -88,6 +88,8 @@ for (const part of job.parts) {
     peak,
     alignMatch: timing.match,
     straddling: timing.straddling,
+    // Thumbnail frame for TikTok/Instagram via Buffer: ~3.5 s into the last scene (the closing question is on screen).
+    thumbOffsetMs: Math.round(Math.max(0, Math.min(timing.sceneStarts[timing.sceneStarts.length - 1] + 3.5, timing.AUDIO_SECONDS - 0.8)) * 1000),
   });
 }
 fs.writeFileSync(path.join(outDir, 'result.json'), JSON.stringify({id: job.id, results}, null, 2));
