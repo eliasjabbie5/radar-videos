@@ -1,0 +1,322 @@
+{
+ "id": "p42186ef14f8281668babc78d72d86cce-2611231045",
+ "parts": [
+  {
+   "n": 1,
+   "audio": "part1.wav",
+   "tag": "OZONSKIKTET • DEL 1/1",
+   "chain": {
+    "labels": [
+     "OZONHÅLET",
+     "UPPTÄCKT",
+     "MONTREAL",
+     "UTFASAT"
+    ],
+    "unlockAt": [
+     "$2",
+     "@3:Antarktis",
+     "@4:Montrealprotokollet",
+     null
+    ]
+   },
+   "scenes": [
+    {
+     "key": "hook",
+     "script": "Vad hände med hålet i himlen som alla pratade om på åttiotalet? Svaret: det är på väg att läka.",
+     "source": null,
+     "chrome": false,
+     "body": {
+      "type": "stack",
+      "gap": 40,
+      "widgets": [
+       {
+        "t": "bigtext",
+        "text": "HÅLET I HIMLEN",
+        "sub": "SOM ALLA PRATADE OM PÅ 80-TALET",
+        "at": "@hålet-0.3",
+        "size": 150
+       },
+       {
+        "t": "checklist",
+        "rows": [
+         {
+          "text": "OZONSKIKTET LÄKER",
+          "sub": "ÅTERHÄMTNINGEN PÅGÅR",
+          "state": "yes",
+          "at": "@läka"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "key": "aterhamtning",
+     "script": "Enligt internationella utvärderingar återhämtar sig ozonskiktet nu successivt, även om det tar tid innan det är helt återställt.",
+     "source": "KÄLLA: INTERNATIONELLA UTVÄRDERINGAR",
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 40,
+      "widgets": [
+       {
+        "t": "bigtext",
+        "text": "ÅTERHÄMTNING",
+        "sub": "ENLIGT INTERNATIONELLA UTVÄRDERINGAR",
+        "at": "@Enligt-0.2",
+        "size": 130
+       },
+       {
+        "t": "checklist",
+        "rows": [
+         {
+          "text": "OZONSKIKTET ÅTERHÄMTAR SIG",
+          "sub": "SUCCESSIVT",
+          "state": "yes",
+          "at": "@ozonskiktet"
+         },
+         {
+          "text": "HELT ÅTERSTÄLLT",
+          "sub": "DET TAR TID",
+          "state": "unknown",
+          "at": "@helt-0.3",
+          "stamp": {
+           "text": "TAR TID",
+           "at": "@tid!"
+          }
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "key": "upptackt",
+     "script": "Nittonhundraåttiofem rapporterade brittiska forskare att ozonet över Antarktis om våren hade minskat kraftigt. Upptäckten ledde till snabb politisk handling.",
+     "source": "KÄLLA: BRITISH ANTARCTIC SURVEY",
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 30,
+      "widgets": [
+       {
+        "t": "bigtext",
+        "text": "1985",
+        "sub": "BRITTISKA FORSKARE RAPPORTERAR",
+        "at": "@^",
+        "size": 200
+       },
+       {
+        "t": "map",
+        "view": {
+         "lon0": -180,
+         "lon1": 180,
+         "lat0": -90,
+         "lat1": -60
+        },
+        "height": 340,
+        "dots": 60,
+        "at": "@rapporterade",
+        "title": "ANTARKTIS • OZON OM VÅREN",
+        "markers": [
+         {
+          "label": "BRITTISKA FORSKARE",
+          "lon": -26,
+          "lat": -76,
+          "at": "@brittiska",
+          "tone": "blue",
+          "side": "t"
+         },
+         {
+          "label": "ANTARKTIS",
+          "lon": 100,
+          "lat": -80,
+          "at": "@Antarktis",
+          "tone": "blue",
+          "side": "b"
+         }
+        ],
+        "stamp": {
+         "text": "POLITISK HANDLING",
+         "at": "@handling",
+         "tone": "green"
+        }
+       }
+      ]
+     }
+    },
+    {
+     "key": "montreal",
+     "script": "Den sextonde september nittonhundraåttiosju, två år efter Wienkonventionen, skrevs Montrealprotokollet under. Genom avtalet lovade världens länder att fasa ut de ozonnedbrytande ämnena steg för steg. Idag har alla FN:s medlemsländer anslutit sig.",
+     "source": "KÄLLA: FN:S MILJÖPROGRAM (UNEP)",
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 34,
+      "widgets": [
+       {
+        "t": "bigtext",
+        "text": "16 SEP 1987",
+        "sub": "MONTREALPROTOKOLLET SKRIVS UNDER",
+        "at": "@sextonde-0.2",
+        "size": 170
+       },
+       {
+        "t": "timeline",
+        "nodes": [
+         {
+          "label": "1985",
+          "sub": "WIENKONVENTIONEN",
+          "at": "@Wienkonventionen-0.3",
+          "tone": "blue"
+         },
+         {
+          "label": "1987",
+          "sub": "MONTREALPROTOKOLLET",
+          "at": "@skrevs",
+          "tone": "green"
+         },
+         {
+          "label": "IDAG",
+          "sub": "ALLA FN-LÄNDER",
+          "at": "@Idag",
+          "tone": "green"
+         }
+        ],
+        "chips": [
+         {
+          "text": "FASA UT STEG FÖR STEG",
+          "at": "@fasa",
+          "tone": "green"
+         }
+        ],
+        "stamp": {
+         "text": "ALLA ANSLUTNA",
+         "at": "@anslutit!"
+        }
+       }
+      ]
+     }
+    },
+    {
+     "key": "resultat",
+     "script": "Resultatet är tydligt: nästan alla ozonnedbrytande ämnen är nu avvecklade. Enligt FN:s miljöprogram har nittioåtta procent fasats ut globalt jämfört med nittonhundranittio års nivåer, och halterna i atmosfären minskar nu stadigt.",
+     "source": "KÄLLA: FN:S MILJÖPROGRAM (UNEP)",
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 28,
+      "widgets": [
+       {
+        "t": "bigtext",
+        "text": "NÄSTAN ALLA",
+        "sub": "OZONNEDBRYTANDE ÄMNEN AVVECKLADE",
+        "at": "@Resultatet",
+        "size": 130
+       },
+       {
+        "t": "ring",
+        "value": 98,
+        "suffix": "%",
+        "label": "UTFASAT GLOBALT",
+        "sub": "JÄMFÖRT MED 1990 ÅRS NIVÅER",
+        "at": "@nittioåtta-0.3",
+        "dur": 50,
+        "tone": "green",
+        "stamp": {
+         "text": "ENLIGT UNEP",
+         "at": "@procent!",
+         "tone": "blue"
+        }
+       },
+       {
+        "t": "checklist",
+        "rows": [
+         {
+          "text": "HALTER I ATMOSFÄREN",
+          "sub": "MINSKAR STADIGT",
+          "state": "yes",
+          "at": "@halterna"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "key": "klimat",
+     "script": "Framgången visar att globalt samarbete fungerar. Men frågan är om samma modell går att applicera på klimatkrisen. Även om förutsättningarna ser annorlunda ut, visar historien att det går att vända en negativ miljötrend genom internationella avtal.",
+     "source": null,
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 34,
+      "widgets": [
+       {
+        "t": "bigtext",
+        "text": "GLOBALT SAMARBETE",
+        "sub": "FUNGERAR",
+        "at": "@Framgången",
+        "size": 130
+       },
+       {
+        "t": "versus",
+        "left": {
+         "title": "OZONET",
+         "tone": "green",
+         "at": "@frågan",
+         "rows": [
+          {
+           "text": "Globalt avtal",
+           "at": "@modell"
+          },
+          {
+           "text": "Trend vänd",
+           "at": "@vända"
+          }
+         ]
+        },
+        "right": {
+         "title": "KLIMATKRISEN",
+         "tone": "muted",
+         "at": "@klimatkrisen",
+         "rows": [
+          {
+           "text": "Samma modell?",
+           "at": "@applicera"
+          },
+          {
+           "text": "Annorlunda läge",
+           "at": "@annorlunda"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    },
+    {
+     "key": "fraga",
+     "script": "Kan vi lösa klimatkrisen på samma sätt?",
+     "source": null,
+     "chrome": true,
+     "body": {
+      "type": "binary",
+      "question": "KAN VI LÖSA KLIMATKRISEN?",
+      "questionAt": "@Kan",
+      "options": [
+       "JA",
+       "NEJ"
+      ],
+      "optionsAt": "@sätt-0.3",
+      "switchAt": "@$",
+      "save": {
+       "text": "SPARA",
+       "at": "@sätt!"
+      }
+     }
+    }
+   ]
+  }
+ ]
+}
