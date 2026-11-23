@@ -1,0 +1,324 @@
+{
+ "id": "p42186ef14f828112a596e166e0e0f4d4-2611231303",
+ "parts": [
+  {
+   "n": 1,
+   "audio": "part1.wav",
+   "tag": "BOSTÄDER • DEL 1/1",
+   "chain": {
+    "labels": [
+     "1 MILJON",
+     "100 000/ÅR",
+     "TOMMA?",
+     "FRÅGAN"
+    ],
+    "unlockAt": [
+     "$2",
+     "@3:hundra",
+     "@5:Enligt",
+     null
+    ]
+   },
+   "scenes": [
+    {
+     "key": "hook",
+     "script": "Hur bygger ett land en miljon bostäder på tio år?",
+     "source": null,
+     "chrome": false,
+     "body": {
+      "type": "stack",
+      "gap": 30,
+      "widgets": [
+       {
+        "t": "bigtext",
+        "text": "1 MILJON",
+        "sub": "BOSTÄDER PÅ TIO ÅR",
+        "at": "@miljon-0.3",
+        "size": 190
+       },
+       {
+        "t": "counter",
+        "label": "ÅR",
+        "to": 10,
+        "at": "@tio",
+        "dur": 40,
+        "tone": "green",
+        "grid": {
+         "n": 10,
+         "label": "TIO ÅR",
+         "at": "@tio",
+         "dur": 40
+        }
+       }
+      ]
+     }
+    },
+    {
+     "key": "mal",
+     "script": "På sextiotalet var bostadsköerna långa och många hushåll trångbodda. Därför satte riksdagen nitton sextiofem ett mål: en miljon nya bostäder mellan nitton sextiofem och nitton sjuttiofyra.",
+     "source": "KÄLLA: RIKSDAGEN",
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 34,
+      "widgets": [
+       {
+        "t": "timeline",
+        "nodes": [
+         {
+          "label": "1960-TALET",
+          "sub": "KÖER • TRÅNGBODDHET",
+          "at": "@sextiotalet",
+          "tone": "blue"
+         },
+         {
+          "label": "1965",
+          "sub": "RIKSDAGENS MÅL",
+          "at": "@riksdagen",
+          "tone": "green"
+         },
+         {
+          "label": "1974",
+          "sub": "MÅLETS SLUTÅR",
+          "at": "@sjuttiofyra",
+          "tone": "green"
+         }
+        ]
+       },
+       {
+        "t": "dots",
+        "title": "1 PRICK = 100 000 BOSTÄDER",
+        "at": "@miljon-0.3",
+        "total": 10,
+        "cols": 10,
+        "size": 60,
+        "gap": 12,
+        "groups": [
+         {
+          "label": "1 MILJON NYA BOSTÄDER",
+          "n": 10,
+          "tone": "green",
+          "at": "@miljon",
+          "dur": 40
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "key": "staplar",
+     "script": "Det blev ungefär hundra tusen om året. Tänk dig staplar som växer år för år.",
+     "source": "KÄLLA: RIKSDAGEN",
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 34,
+      "widgets": [
+       {
+        "t": "bigtext",
+        "text": "≈ 100 000",
+        "sub": "BOSTÄDER PER ÅR",
+        "at": "@hundra-0.3",
+        "size": 190
+       },
+       {
+        "t": "bars",
+        "title": "NYA BOSTÄDER PER ÅR",
+        "rows": [
+         {
+          "label": "ÅR 1",
+          "n": 100,
+          "at": "@staplar-0.3",
+          "dur": 30,
+          "tone": "blue"
+         },
+         {
+          "label": "ÅR 5",
+          "n": 100,
+          "at": "@staplar+0.5",
+          "dur": 30,
+          "tone": "blue"
+         },
+         {
+          "label": "ÅR 10",
+          "n": 100,
+          "at": "@staplar+1.0",
+          "dur": 30,
+          "tone": "green"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "key": "karta",
+     "script": "På kartan växer nya områden fram runt storstäderna för att möta det stora behovet av tak över huvudet. Det var en tid av intensivt byggande där hela stadsdelar växte fram på kort tid över hela landet.",
+     "source": null,
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 30,
+      "widgets": [
+       {
+        "t": "map",
+        "view": {
+         "lon0": 9,
+         "lon1": 25,
+         "lat0": 55,
+         "lat1": 69
+        },
+        "height": 760,
+        "squash": 0.55,
+        "dots": 40,
+        "at": "@kartan-0.3",
+        "title": "SVERIGE",
+        "markers": [
+         {
+          "label": "STOCKHOLM",
+          "lon": 18.07,
+          "lat": 59.33,
+          "at": "@storstäderna",
+          "tone": "green",
+          "side": "r"
+         },
+         {
+          "label": "GÖTEBORG",
+          "lon": 11.97,
+          "lat": 57.71,
+          "at": "@storstäderna+0.4",
+          "tone": "green",
+          "side": "l"
+         },
+         {
+          "label": "MALMÖ",
+          "lon": 13,
+          "lat": 55.6,
+          "at": "@storstäderna+0.8",
+          "tone": "green",
+          "side": "l"
+         }
+        ]
+       },
+       {
+        "t": "bigtext",
+        "text": "NYA STADSDELAR",
+        "sub": "RUNT STORSTÄDERNA",
+        "at": "@stadsdelar-0.3",
+        "size": 130
+       }
+      ]
+     }
+    },
+    {
+     "key": "tomma",
+     "script": "Enligt vissa rapporter stod en del lägenheter i allmännyttiga områden tomma mot slutet av åttiotalet.",
+     "source": "KÄLLA: ENLIGT VISSA RAPPORTER",
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 40,
+      "widgets": [
+       {
+        "t": "bigtext",
+        "text": "TOMMA?",
+        "sub": "ENLIGT VISSA RAPPORTER",
+        "at": "@Enligt",
+        "size": 220
+       },
+       {
+        "t": "checklist",
+        "rows": [
+         {
+          "text": "LÄGENHETER STOD TOMMA",
+          "sub": "ALLMÄNNYTTIGA OMRÅDEN",
+          "state": "unknown",
+          "at": "@lägenheter",
+          "stamp": {
+           "text": "OBEKRÄFTAT",
+           "at": "@åttiotalet!"
+          }
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "key": "debatt",
+     "script": "Trots den massiva satsningen diskuteras det än i dag hur väl behoven egentligen möttes på lång sikt och hur situationen ser ut i våra städer nu när årtionden har gått sedan de sista husen i projektet färdigställdes.",
+     "source": null,
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 34,
+      "widgets": [
+       {
+        "t": "versus",
+        "left": {
+         "title": "SATSNINGEN",
+         "tone": "blue",
+         "at": "@satsningen-0.3",
+         "rows": [
+          {
+           "text": "1 miljon bostäder",
+           "at": "@satsningen"
+          },
+          {
+           "text": "På tio år",
+           "at": "@satsningen+0.6"
+          }
+         ]
+        },
+        "right": {
+         "title": "DEBATTEN",
+         "tone": "muted",
+         "at": "@diskuteras-0.2",
+         "rows": [
+          {
+           "text": "Möttes behoven?",
+           "at": "@möttes"
+          },
+          {
+           "text": "Läget i städerna",
+           "at": "@situationen"
+          }
+         ]
+        }
+       },
+       {
+        "t": "bigtext",
+        "text": "DEBATT KVAR",
+        "sub": "OM BEHOVEN MÖTTES PÅ LÅNG SIKT",
+        "at": "@årtionden-0.3",
+        "size": 150
+       }
+      ]
+     }
+    },
+    {
+     "key": "fraga",
+     "script": "Så, lyckades programmet lösa bostadsbristen?",
+     "source": null,
+     "chrome": true,
+     "body": {
+      "type": "binary",
+      "question": "LÖSTE PROGRAMMET BRISTEN?",
+      "questionAt": "@Så-0.2",
+      "options": [
+       "JA",
+       "NEJ"
+      ],
+      "optionsAt": "@bostadsbristen-0.3",
+      "switchAt": "@bostadsbristen!",
+      "save": {
+       "text": "SPARA",
+       "at": "@bostadsbristen!"
+      }
+     }
+    }
+   ]
+  }
+ ]
+}
