@@ -1,0 +1,10 @@
+const {chromium}=require('playwright');const fs=require('fs');
+const mark=fs.readFileSync('radar-mark.svg','utf8');
+(async()=>{const b=await chromium.launch();const p=await b.newPage({viewport:{width:2000,height:1200},deviceScaleFactor:1});
+const head=`<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&display=swap" rel="stylesheet"><style>body{margin:0;background:#fff}#a{width:2048px;height:2048px;display:grid;place-items:center}#a div{width:1400px;height:1400px}#b{width:2400px;height:900px;display:flex;align-items:center;justify-content:center;gap:50px}#b .m{width:420px;height:420px}#b .w{font-family:'Bricolage Grotesque';font-weight:800;font-size:400px;letter-spacing:-16px;color:#14161B;line-height:1}</style>`;
+await p.setViewportSize({width:2400,height:2048});
+await p.setContent(`${head}<div id=a><div>${mark}</div></div><div id=b><div class=m>${mark}</div><div class=w>radar</div></div>`);
+await p.waitForTimeout(2500);
+await p.locator('#a').screenshot({path:'radar-mark-white-bg.png'});
+await p.locator('#b').screenshot({path:'radar-logo-white-bg.png'});
+await b.close()})();

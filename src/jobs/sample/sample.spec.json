@@ -1,0 +1,46 @@
+{
+  "id": "sample-gta6",
+  "tag": "GTA 6 • REKORD",
+  "audioFile": "gt1.mp3",
+  "chain": {
+    "labels": ["3,8 MDR $", "JÄMFÖRT BIO", "5X GTA 5", "VÄRLDEN"],
+    "unlockAt": ["$2", "@2:avatar", "@4:femdubblats.", null]
+  },
+  "scenes": [
+    {"key": "hook", "source": null, "chrome": false, "body": {"type": "stack", "gap": 30, "widgets": [
+      {"t": "bigtext", "text": "3,8 MDR $", "sub": "PÅ BARA 24 TIMMAR • GTA 6", "at": "@3,8-0.3", "size": 190},
+      {"t": "counter", "label": "TIMMAR", "to": 24, "at": "@tjugofyra", "dur": 40, "tone": "green", "grid": {"n": 24, "label": "FÖRSTA DYGNET", "at": "@tjugofyra", "dur": 60}}
+    ]}},
+    {"key": "bio", "source": "KÄLLA: ROCKSTAR • TAKE-TWO", "chrome": true, "body": {"type": "stack", "gap": 34, "widgets": [
+      {"t": "versus",
+        "left": {"title": "GTA 6", "tone": "green", "at": "@betyder", "rows": [{"text": "24 timmar", "at": "@tv-spel"}, {"text": "≈ 3,8 mdr $", "at": "@tv-spel+0.6"}]},
+        "right": {"title": "PÅ BIO", "tone": "blue", "at": "@avatar-0.4", "rows": [{"text": "Avatar", "at": "@avatar"}, {"text": "Endgame", "at": "@endgame"}]},
+        "stamp": {"text": "ETT SPEL", "at": "@bio."}},
+      {"t": "bigtext", "text": "MER PENGAR", "sub": "PÅ EN DAG ÄN HELA BIOTIDEN", "at": "@bio.-0.5", "size": 130}
+    ]}},
+    {"key": "maktskifte", "source": "KÄLLA: BRANSCHDATA", "chrome": true, "body": {"type": "stack", "gap": 34, "widgets": [
+      {"t": "bigtext", "text": "MAKTSKIFTE", "sub": "I UNDERHÅLLNINGSBRANSCHEN", "at": "@maktskifte-0.3", "size": 170},
+      {"t": "columns3", "cols": [
+        {"title": "HOLLYWOOD", "text": "FILM", "tone": "blue", "at": "@Hollywood-0.2"},
+        {"title": "MUSIK", "text": "MUSIKBRANSCHEN", "tone": "blue", "at": "@musikbranschen-0.2"},
+        {"title": "SPEL", "text": "VUXIT OM BÅDA", "tone": "green", "at": "@tillsammans.-0.4"}
+      ]}
+    ]}},
+    {"key": "gta5", "source": "KÄLLA: ROCKSTAR • TAKE-TWO", "chrome": true, "body": {"type": "stack", "gap": 30, "widgets": [
+      {"t": "dots", "title": "1 PRICK = 200 MILJONER DOLLAR", "at": "@5", "total": 23, "cols": 12, "size": 60, "gap": 12,
+        "groups": [
+          {"label": "GTA 5 • 2013 • 800 M$", "n": 4, "tone": "blue", "at": "@800", "dur": 24},
+          {"label": "GTA 6 • 2026 • 3,8 MDR $", "n": 19, "tone": "green", "at": "@Tretton", "dur": 60}
+        ]},
+      {"t": "bigtext", "text": "≈ 5X", "sub": "NÄSTAN FEMDUBBLAT PÅ 13 ÅR", "at": "@femdubblats.-0.4", "size": 220}
+    ]}},
+    {"key": "allt", "source": null, "chrome": true, "body": {"type": "stack", "gap": 34, "widgets": [
+      {"t": "bigtext", "text": "ETT ENDA SPEL", "sub": "KAN PÅVERKA HELA VÄRLDEN", "at": "@För", "size": 130},
+      {"t": "checklist", "rows": [
+        {"text": "BÖRSKURSER", "sub": "KAN FLYTTAS", "state": "yes", "at": "@börskurser,"},
+        {"text": "PRODUKTIVITET PÅ JOBBET", "sub": "KAN SJUNKA", "state": "yes", "at": "@produktiviteten"},
+        {"text": "VÄRLDENS UPPMÄRKSAMHET", "sub": "DOMINERAS SAMTIDIGT", "state": "yes", "at": "@uppmärksamhet"}
+      ]}
+    ]}}
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "valet-2026-explainer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Editorial Verre \u2014 Swedish news explainer series (Remotion, 1080x1920 @ 30fps)",
+  "scripts": {
+    "dev": "remotion studio",
+    "render": "remotion render Episode1 out/episode1.mp4",
+    "still": "remotion still Episode1 out/still.png --frame=900",
+    "typecheck": "tsc --noEmit",
+    "master": "ffmpeg -y -i out/episode1.mp4 -c:v copy -af \"acompressor=threshold=-18dB:ratio=3:attack=5:release=80:makeup=2,loudnorm=I=-14:TP=-1.5:LRA=9\" -c:a aac -b:a 192k out/episode1-master.mp4",
+    "sfx": "python3 scripts/sfx/make_sfx.py"
+  },
+  "dependencies": {
+    "@remotion/captions": "4.0.545",
+    "@remotion/cli": "4.0.545",
+    "@remotion/google-fonts": "4.0.545",
+    "@remotion/tailwind-v4": "4.0.545",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "4.0.545",
+    "tailwindcss": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "typescript": "^5.6.0"
+  }
+}

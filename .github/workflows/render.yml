@@ -1,0 +1,59 @@
+name: Render video
+
+on:
+  workflow_dispatch:
+    inputs:
+      composition:
+        description: Composition ID
+        default: Episode1
+        required: true
+      output_name:
+        description: Output file name (without extension)
+        default: episode1
+        required: true
+      concurrency:
+        description: Parallel browser tabs (leave empty for auto)
+        required: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check for voiceover
+        run: |
+          if [ -f public/voiceover.mp3 ]; then
+            echo "voiceover.mp3 found"
+          else
+            echo "::warning::public/voiceover.mp3 is missing — rendering a silent video"
+          fi
+
+      - name: Render
+        run: |
+          CONC=""
+          if [ -n "${{ inputs.concurrency }}" ]; then CONC="--concurrency=${{ inputs.concurrency }}"; fi
+          npx remotion render "${{ inputs.composition }}" "out/${{ inputs.output_name }}.mp4" $CONC
+
+      - name: Master audio (-14 LUFS, voice + effects)
+        run: |
+          ffmpeg -y -i "out/${{ inputs.output_name }}.mp4" -c:v copy \
+            -af "acompressor=threshold=-18dB:ratio=3:attack=5:release=80:makeup=2,loudnorm=I=-14:TP=-1.5:LRA=9" \
+            -c:a aac -b:a 192k "out/${{ inputs.output_name }}-master.mp4"
+
+      - name: Upload video
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.output_name }}-mp4
+          path: out/${{ inputs.output_name }}-master.mp4
+          if-no-files-found: error
+          retention-days: 14

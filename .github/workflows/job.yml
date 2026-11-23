@@ -1,0 +1,78 @@
+name: Render job
+
+# Triggered by n8n after it has committed jobs/<job_id>/ (job.json + partN.wav files):
+#   POST /repos/<owner>/<repo>/dispatches  {"event_type": "render-job", "client_payload": {"job_id": "..."}}
+# or manually from the Actions tab. Result: a GitHub Release "job-<job_id>" with the mastered videos,
+# plus a callback POST to the n8n webhook in the secret N8N_CALLBACK_URL (optional).
+
+on:
+  repository_dispatch:
+    types: [render-job]
+  workflow_dispatch:
+    inputs:
+      job_id:
+        description: Job folder name under jobs/
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      JOB_ID: ${{ github.event.client_payload.job_id || inputs.job_id }}
+      ASR_MODEL_DIR: /opt/asr/sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          pip install --quiet numpy sherpa-onnx
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Cache speech model
+        id: asr-cache
+        uses: actions/cache@v4
+        with:
+          path: /opt/asr
+          key: asr-parakeet-tdt-0.6b-v3-int8
+
+      - name: Download speech model
+        if: steps.asr-cache.outputs.cache-hit != 'true'
+        run: |
+          sudo mkdir -p /opt/asr && sudo chown "$USER" /opt/asr
+          curl -fsSL -o /tmp/parakeet.tar.bz2 https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8.tar.bz2
+          tar -xjf /tmp/parakeet.tar.bz2 -C /opt/asr
+
+      - name: Run job (timing, render, master)
+        run: node scripts/job/run.mjs "jobs/$JOB_ID"
+
+      - name: Publish release
+        id: release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete "job-$JOB_ID" --yes --cleanup-tag 2>/dev/null || true
+          gh release create "job-$JOB_ID" out/$JOB_ID/*-master.mp4 out/$JOB_ID/result.json \
+            --title "job-$JOB_ID" --notes "Rendered by workflow run ${{ github.run_id }}"
+          echo "url=$(gh release view "job-$JOB_ID" --json url -q .url)" >> "$GITHUB_OUTPUT"
+
+      - name: Notify n8n
+        if: always()
+        env:
+          CALLBACK: ${{ secrets.N8N_CALLBACK_URL }}
+          STATUS: ${{ job.status }}
+          RELEASE_URL: ${{ steps.release.outputs.url }}
+        run: |
+          if [ -n "$CALLBACK" ]; then
+            curl -sS -X POST "$CALLBACK" -H 'content-type: application/json' \
+              -d "{\"job_id\":\"$JOB_ID\",\"status\":\"$STATUS\",\"release_url\":\"$RELEASE_URL\",\"run_url\":\"${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" || true
+          fi
