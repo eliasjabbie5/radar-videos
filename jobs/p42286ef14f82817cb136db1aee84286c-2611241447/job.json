@@ -1,0 +1,323 @@
+{
+ "id": "p42286ef14f82817cb136db1aee84286c-2611241447",
+ "parts": [
+  {
+   "n": 1,
+   "audio": "part1.wav",
+   "tag": "VÄNSTERPARTIET • REGERING",
+   "chain": {
+    "labels": [
+     "4 PARTIER",
+     "BUDET",
+     "NEJ FRÅN V",
+     "MINISTRAR"
+    ],
+    "unlockAt": [
+     "$2",
+     "@3:bud",
+     "@4:nej",
+     null
+    ]
+   },
+   "scenes": [
+    {
+     "key": "hook",
+     "script": "Ett paket med nej till marknadshyror, tandvård och kortare arbetstid. Och Vänsterpartiet sa ändå nej.",
+     "source": null,
+     "chrome": false,
+     "body": {
+      "type": "stack",
+      "gap": 30,
+      "widgets": [
+       {
+        "t": "checklist",
+        "rows": [
+         {
+          "text": "NEJ TILL MARKNADSHYROR",
+          "state": "yes",
+          "at": "@marknadshyror,"
+         },
+         {
+          "text": "TANDVÅRDSREFORM",
+          "state": "yes",
+          "at": "@tandvård"
+         },
+         {
+          "text": "KORTARE ARBETSTID",
+          "state": "yes",
+          "at": "@arbetstid."
+         }
+        ]
+       },
+       {
+        "t": "bigtext",
+        "text": "ÄNDÅ NEJ",
+        "sub": "VÄNSTERPARTIET SA NEJ",
+        "at": "@ändå-0.2",
+        "size": 190
+       }
+      ]
+     }
+    },
+    {
+     "key": "siffrorna",
+     "script": "Efter valet försöker Magdalena Andersson bilda regering med Centerpartiet och Miljöpartiet. Men utan Vänsterpartiet räcker inte siffrorna.",
+     "source": null,
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 34,
+      "widgets": [
+       {
+        "t": "fusion",
+        "inputs": [
+         {
+          "label": "S • ANDERSSON",
+          "at": "@Magdalena"
+         },
+         {
+          "label": "C",
+          "at": "@Centerpartiet"
+         },
+         {
+          "label": "MP",
+          "at": "@Miljöpartiet."
+         }
+        ],
+        "hub": {
+         "label": "REGERING",
+         "at": "@regering"
+        },
+        "outputs": [
+         {
+          "label": "RÄCKER INTE",
+          "at": "@räcker",
+          "dashed": true
+         }
+        ],
+        "linksAt": "@Miljöpartiet.+0.3",
+        "height": 560
+       },
+       {
+        "t": "bigtext",
+        "text": "UTAN V",
+        "sub": "RÄCKER INTE SIFFRORNA",
+        "at": "@utan-0.2",
+        "size": 170
+       }
+      ]
+     }
+    },
+    {
+     "key": "budet",
+     "script": "Hon la fram ett bud i en debattartikel. Nej till marknadshyror, en tandvårdsreform, kortare arbetstid i välfärden. Och tjänstemän åt Vänsterpartiet i Regeringskansliet.",
+     "source": "KÄLLA: ANDERSSONS DEBATTARTIKEL",
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 30,
+      "widgets": [
+       {
+        "t": "bigtext",
+        "text": "BUDET",
+        "sub": "I EN DEBATTARTIKEL",
+        "at": "@bud-0.2",
+        "size": 170
+       },
+       {
+        "t": "checklist",
+        "rows": [
+         {
+          "text": "NEJ TILL MARKNADSHYROR",
+          "state": "yes",
+          "at": "@marknadshyror,"
+         },
+         {
+          "text": "TANDVÅRDSREFORM",
+          "state": "yes",
+          "at": "@tandvårdsreform,"
+         },
+         {
+          "text": "KORTARE ARBETSTID",
+          "sub": "I VÄLFÄRDEN",
+          "state": "yes",
+          "at": "@arbetstid"
+         },
+         {
+          "text": "TJÄNSTEMÄN ÅT V",
+          "sub": "I REGERINGSKANSLIET",
+          "state": "yes",
+          "at": "@tjänstemän"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "key": "nejtack",
+     "script": "Vänsterpartiet svarade: tack men nej tack. Viktiga saker saknas, och förhandling via debattartiklar är inte förhandling. Men det handlar egentligen om en sak: ministerposter.",
+     "source": "KÄLLA: VÄNSTERPARTIET",
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 30,
+      "widgets": [
+       {
+        "t": "checklist",
+        "rows": [
+         {
+          "text": "TACK MEN NEJ TACK",
+          "state": "no",
+          "at": "@tack",
+          "stamp": {
+           "text": "NEJ",
+           "at": "@nej!"
+          }
+         },
+         {
+          "text": "VIKTIGA SAKER SAKNAS",
+          "state": "no",
+          "at": "@Viktiga"
+         },
+         {
+          "text": "INTE FÖRHANDLING",
+          "sub": "VIA DEBATTARTIKLAR",
+          "state": "no",
+          "at": "@debattartiklar"
+         }
+        ]
+       },
+       {
+        "t": "bigtext",
+        "text": "MINISTERPOSTER",
+        "sub": "DET HANDLAR OM EN SAK",
+        "at": "@egentligen",
+        "size": 150
+       }
+      ]
+     }
+    },
+    {
+     "key": "ministrar",
+     "script": "Vänsterpartiet vill sitta i regeringen. Inte stå utanför och rösta. Och Centerpartiet säger tvärtom. Inga ministrar från Vänsterpartiet. Budet är sista, säger Centerpartiet.",
+     "source": "KÄLLA: VÄNSTERPARTIET • CENTERPARTIET",
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 34,
+      "widgets": [
+       {
+        "t": "versus",
+        "left": {
+         "title": "VÄNSTERPARTIET",
+         "tone": "green",
+         "at": "@^",
+         "rows": [
+          {
+           "text": "Vill in i regeringen",
+           "at": "@sitta"
+          },
+          {
+           "text": "Inte stå utanför",
+           "at": "@utanför"
+          }
+         ]
+        },
+        "right": {
+         "title": "CENTERPARTIET",
+         "tone": "red",
+         "at": "@Centerpartiet",
+         "rows": [
+          {
+           "text": "Inga V-ministrar",
+           "at": "@ministrar"
+          },
+          {
+           "text": "Budet är sista",
+           "at": "@sista,"
+          }
+         ]
+        },
+        "stamp": {
+         "text": "MOTSATTA KRAV",
+         "at": "@tvärtom."
+        }
+       }
+      ]
+     }
+    },
+    {
+     "key": "mitten",
+     "script": "Så Vänsterpartiet vill in, Centerpartiet vill inte ha dem där, och Socialdemokraterna står mitt emellan. Alla säger att nästa drag är någon annans. Och om det spricker blir det ingen ny regering på ett tag.",
+     "source": null,
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 30,
+      "widgets": [
+       {
+        "t": "columns3",
+        "cols": [
+         {
+          "title": "V",
+          "text": "VILL IN",
+          "tone": "green",
+          "at": "@Vänsterpartiet"
+         },
+         {
+          "title": "C",
+          "text": "VILL INTE HA DEM",
+          "tone": "red",
+          "at": "@Centerpartiet"
+         },
+         {
+          "title": "S",
+          "text": "MITT EMELLAN",
+          "tone": "blue",
+          "at": "@Socialdemokraterna"
+         }
+        ]
+       },
+       {
+        "t": "checklist",
+        "rows": [
+         {
+          "text": "NÄSTA DRAG",
+          "sub": "ALLA PEKAR PÅ NÅGON ANNAN",
+          "state": "unknown",
+          "at": "@nästa"
+         }
+        ]
+       },
+       {
+        "t": "bigtext",
+        "text": "INGEN REGERING",
+        "sub": "PÅ ETT TAG OM DET SPRICKER",
+        "at": "@ingen-0.3",
+        "size": 150
+       }
+      ]
+     }
+    },
+    {
+     "key": "fraga",
+     "script": "Är ministerposter värda att riskera hela regeringsbildningen?",
+     "source": null,
+     "chrome": true,
+     "body": {
+      "type": "binary",
+      "question": "VÄRT ATT RISKERA REGERINGEN?",
+      "questionAt": "@^",
+      "options": [
+       "JA",
+       "NEJ"
+      ],
+      "optionsAt": "@hela",
+      "switchAt": "@$"
+     }
+    }
+   ]
+  }
+ ]
+}
