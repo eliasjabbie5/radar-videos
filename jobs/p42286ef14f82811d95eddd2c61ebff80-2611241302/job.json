@@ -1,0 +1,359 @@
+{
+ "id": "p42286ef14f82811d95eddd2c61ebff80-2611241302",
+ "parts": [
+  {
+   "n": 1,
+   "audio": "part1.wav",
+   "tag": "SUEZ • DEL 1/1",
+   "chain": {
+    "labels": [
+     "SUEZ",
+     "10 DAGAR",
+     "1869",
+     "1975"
+    ],
+    "unlockAt": [
+     "$2",
+     "@3:Tio",
+     "@4:1869",
+     null
+    ]
+   },
+   "scenes": [
+    {
+     "key": "hook",
+     "script": "Åtta år. Så länge ska fartyg ha suttit fast i Suezkanalen, enligt uppgift. Vad händer när världens viktigaste genväg plötsligt försvinner?",
+     "source": null,
+     "chrome": false,
+     "body": {
+      "type": "stack",
+      "gap": 30,
+      "widgets": [
+       {
+        "t": "bigtext",
+        "text": "ÅTTA ÅR",
+        "sub": "FASTA I SUEZKANALEN • ENLIGT UPPGIFT",
+        "at": "@Åtta-0.3",
+        "size": 190
+       },
+       {
+        "t": "dots",
+        "title": "1 PRICK = 1 ÅR",
+        "at": "@suttit",
+        "total": 8,
+        "cols": 8,
+        "size": 70,
+        "gap": 12,
+        "groups": [
+         {
+          "label": "ENLIGT UPPGIFT",
+          "n": 8,
+          "tone": "blue",
+          "at": "@suttit",
+          "dur": 40
+         }
+        ]
+       },
+       {
+        "t": "bigtext",
+        "text": "GENVÄG BORT?",
+        "sub": "VÄRLDENS VIKTIGASTE",
+        "at": "@genväg-0.3",
+        "size": 130
+       }
+      ]
+     }
+    },
+    {
+     "key": "karta",
+     "script": "Först kartan: Suezkanalen är den kortaste sjövägen mellan Europa och Asien. Utan den blir resan längre, ungefär tio extra seglingsdagar enligt vissa uppgifter.",
+     "source": null,
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 30,
+      "widgets": [
+       {
+        "t": "map",
+        "view": {
+         "lon0": -10,
+         "lon1": 90,
+         "lat0": 5,
+         "lat1": 58
+        },
+        "height": 540,
+        "dots": 60,
+        "at": "@kartan",
+        "title": "SJÖVÄGEN EUROPA–ASIEN",
+        "markers": [
+         {
+          "label": "ROTTERDAM",
+          "lon": 4.5,
+          "lat": 51.9,
+          "at": "@mellan",
+          "tone": "blue",
+          "side": "t"
+         },
+         {
+          "label": "SUEZKANALEN",
+          "lon": 32.5,
+          "lat": 30,
+          "at": "@Suezkanalen",
+          "tone": "green",
+          "side": "b"
+         },
+         {
+          "label": "MUMBAI",
+          "lon": 72.8,
+          "lat": 19.1,
+          "at": "@Asien-0.4",
+          "tone": "blue",
+          "side": "b"
+         }
+        ],
+        "routes": [
+         {
+          "from": 0,
+          "to": 1,
+          "at": "@Europa+0.2",
+          "dur": 40,
+          "tone": "green"
+         },
+         {
+          "from": 1,
+          "to": 2,
+          "at": "@Asien",
+          "dur": 40,
+          "tone": "green"
+         }
+        ]
+       },
+       {
+        "t": "bigtext",
+        "text": "+10 DAGAR",
+        "sub": "UTAN KANALEN • ENLIGT VISSA UPPGIFTER",
+        "at": "@tio-0.3",
+        "size": 170
+       }
+      ]
+     }
+    },
+    {
+     "key": "tio",
+     "script": "Tio dagar låter kanske lite, men för en handel som lever på tidtabeller och snäva marginaler är det mycket.",
+     "source": null,
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 34,
+      "widgets": [
+       {
+        "t": "counter",
+        "label": "EXTRA DAGAR",
+        "to": 10,
+        "at": "@Tio",
+        "dur": 40,
+        "tone": "blue",
+        "grid": {
+         "n": 10,
+         "label": "ENLIGT VISSA UPPGIFTER",
+         "at": "@Tio",
+         "dur": 60
+        }
+       },
+       {
+        "t": "checklist",
+        "rows": [
+         {
+          "text": "TIDTABELLER",
+          "sub": "HANDELN LEVER PÅ DEM",
+          "state": "yes",
+          "at": "@tidtabeller"
+         },
+         {
+          "text": "SNÄVA MARGINALER",
+          "sub": "TIO DAGAR ÄR MYCKET",
+          "state": "yes",
+          "at": "@marginaler"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "key": "tidslinje",
+     "script": "Nu tidslinjen. Enligt en källa öppnades kanalen 1869. När och varför den stängdes är inte bekräftat.",
+     "source": null,
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 40,
+      "widgets": [
+       {
+        "t": "bigtext",
+        "text": "TIDSLINJE",
+        "sub": "SUEZKANALEN",
+        "at": "@^",
+        "size": 150
+       },
+       {
+        "t": "timeline",
+        "nodes": [
+         {
+          "label": "1869",
+          "sub": "KANALEN ÖPPNAS",
+          "at": "@1869-0.4",
+          "tone": "blue"
+         },
+         {
+          "label": "STÄNGNING",
+          "sub": "NÄR OCH VARFÖR OKLART",
+          "at": "@stängdes",
+          "tone": "muted"
+         }
+        ],
+        "chips": [
+         {
+          "text": "ENLIGT EN KÄLLA",
+          "at": "@källa",
+          "tone": "blue"
+         }
+        ],
+        "stamp": {
+         "text": "OBEKRÄFTAT",
+         "at": "@bekräftat!"
+        }
+       }
+      ]
+     }
+    },
+    {
+     "key": "atta-ar",
+     "script": "Enligt egyptiska statliga informationstjänsten öppnades den igen 1975, efter ungefär åtta år. Enligt en rubrik satt två svenska skepp fast i åtta år.",
+     "source": "KÄLLA: EGYPTENS STATLIGA INFORMATIONSTJÄNST",
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 28,
+      "widgets": [
+       {
+        "t": "bigtext",
+        "text": "1975",
+        "sub": "ÖPPNADES IGEN • ENLIGT STATLIG KÄLLA",
+        "at": "@1975-0.3",
+        "size": 190
+       },
+       {
+        "t": "dots",
+        "title": "1 PRICK = 1 ÅR",
+        "at": "@efter",
+        "total": 8,
+        "cols": 8,
+        "size": 70,
+        "gap": 12,
+        "groups": [
+         {
+          "label": "≈ ÅTTA ÅR",
+          "n": 8,
+          "tone": "blue",
+          "at": "@efter",
+          "dur": 40
+         }
+        ]
+       },
+       {
+        "t": "cards",
+        "cards": [
+         {
+          "kicker": "ENLIGT EN RUBRIK",
+          "title": "2 SVENSKA SKEPP",
+          "at": "@rubrik",
+          "tag": "FAST I ÅTTA ÅR",
+          "stamp": {
+           "text": "OBEKRÄFTAT",
+           "at": "@fast!"
+          }
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "key": "tanken",
+     "script": "Hur många fartyg det totalt rörde sig om är inte bekräftat, så vi lämnar siffran därhän. Men själva tanken är svindlande: fartyg som blir kvar medan världen runt omkring dem går vidare.",
+     "source": null,
+     "chrome": true,
+     "body": {
+      "type": "stack",
+      "gap": 40,
+      "widgets": [
+       {
+        "t": "checklist",
+        "rows": [
+         {
+          "text": "ANTAL FARTYG",
+          "sub": "SIFFRAN LÄMNAS DÄRHÄN",
+          "state": "unknown",
+          "at": "@^",
+          "stamp": {
+           "text": "OBEKRÄFTAT",
+           "at": "@bekräftat!"
+          }
+         }
+        ]
+       },
+       {
+        "t": "versus",
+        "left": {
+         "title": "FARTYGEN",
+         "tone": "blue",
+         "at": "@tanken",
+         "rows": [
+          {
+           "text": "Blir kvar",
+           "at": "@kvar"
+          }
+         ]
+        },
+        "right": {
+         "title": "VÄRLDEN",
+         "tone": "green",
+         "at": "@medan",
+         "rows": [
+          {
+           "text": "Går vidare",
+           "at": "@vidare-0.3"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    },
+    {
+     "key": "fraga",
+     "script": "Hur sårbar är världshandeln när så mycket hänger på några få smala passager?",
+     "source": null,
+     "chrome": true,
+     "body": {
+      "type": "binary",
+      "question": "HUR SÅRBAR ÄR VÄRLDSHANDELN?",
+      "questionAt": "@Hur",
+      "options": [
+       "SÅRBAR",
+       "TÅLIG"
+      ],
+      "optionsAt": "@mycket",
+      "switchAt": "@passager",
+      "teaser": {
+       "text": "NÄSTA VIDEO",
+       "at": "@$"
+      }
+     }
+    }
+   ]
+  }
+ ]
+}
